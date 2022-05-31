@@ -23,10 +23,10 @@ public class CalculoPlanoDeSaude {
 		if (idade < 10) {
 			adicional = 100.0 + 80.0;
 			System.out.println("O valor total é de R$ " + adicional);
-		} else if (idade >= 10 && idade <= 30) {
+		} else if (idade <= 30) {
 			adicional = 100.0 + 50.0;
 			System.out.println("O valor total é de R$ " + adicional);
-		} else if (idade > 30 && idade < 60) {
+		} else if ( idade <= 60) {
 			adicional = 100.0 + 95.0;
 			System.out.println("O valor total é de R$ " + adicional);
 		} else {

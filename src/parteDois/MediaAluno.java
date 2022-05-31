@@ -7,6 +7,7 @@
 
 package parteDois;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class MediaAluno {
@@ -14,33 +15,31 @@ public class MediaAluno {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
+		Locale.setDefault(Locale.US);
 		System.out.println("Digite seu código, e suas 3 notas");
 		int codigo = sc.nextInt();
-		int nota1 = sc.nextInt();
-		int nota2 = sc.nextInt();
-		int nota3 = sc.nextInt();
-		int mediaPonderada;
-		
+		double nota1 = sc.nextDouble();
+		double nota2 = sc.nextDouble();
+		double nota3 = sc.nextDouble();
+		double mediaPonderada = 0;
 
-		mediaPonderada = (4 * nota1) + (3 * nota2) + (3 * nota3) / 10; // calculo media ponderada
-		
-
-		while (mediaPonderada > 0) {
-			int media = mediaPonderada;
-			if (media >= 5) {
-				System.out.printf("APROVADO!! Código %d, Notas: %d, %d, %d e a média calculada %d%n", codigo, nota1,
-						nota2, nota3, mediaPonderada);
-
-			} else {
-				System.out.printf("Reprovado!! Código %d, Notas: %d, %d, %d e a média calculada %d%n", codigo, nota1,
-						nota2, nota3, mediaPonderada);
-
-			}
-
-			mediaPonderada = sc.nextInt();
+		if (nota1 > nota2 && nota1 > nota3) {
+			mediaPonderada = ((nota1 * 4) + (nota2 * 3) + (nota3 * 3)) / 10;
+		} else if (nota2 > nota1 && nota2 > nota3) {
+			mediaPonderada = ((nota2 * 4) + (nota1 * 3) + (nota3 * 3)) / 10;
+		} else if (nota3 > nota1 && nota3 > nota2) {
+			mediaPonderada = ((nota3 * 4) + (nota1 * 3) + (nota2 * 3)) / 10;
 		}
 
-		sc.close();
-	}
+		while (mediaPonderada >= 5.00) {
+			System.out.printf("Aprovado!/n Codigo %d%n Notas: %.2f %.2f %.2f%n Media Ponderada: %.2f%n", codigo, nota1,
+					nota2, nota3, mediaPonderada);
+			
+			mediaPonderada = sc.nextDouble();
+		}
 
+		System.out.printf("Reprovado!%n Codigo %d%n Notas: %.2f %.2f %.2f%n Media Ponderada: %.2f%n", codigo, nota1,
+				nota2, nota3, mediaPonderada);
+
+	}
 }
