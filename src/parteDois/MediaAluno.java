@@ -25,21 +25,33 @@ public class MediaAluno {
 
 		if (nota1 > nota2 && nota1 > nota3) {
 			mediaPonderada = ((nota1 * 4) + (nota2 * 3) + (nota3 * 3)) / 10;
-		} else if (nota2 >  nota3) {
+			if (mediaPonderada >= 5) {
+				System.out.printf("Aprovado!%n Codigo %d%n Notas: %.2f %.2f %.2f%n Media Ponderada: %.2f%n", codigo,
+						nota1, nota2, nota3, mediaPonderada);
+			} else {
+				System.out.printf("Reprovado!%n Codigo %d%n Notas: %.2f %.2f %.2f%n Media Ponderada: %.2f%n", codigo,
+						nota1, nota2, nota3, mediaPonderada);
+			}
+		} else if (nota2 > nota3) {
 			mediaPonderada = ((nota2 * 4) + (nota1 * 3) + (nota3 * 3)) / 10;
+			if (mediaPonderada >= 5) {
+				System.out.printf("Aprovado!%n Codigo %d%n Notas: %.2f %.2f %.2f%n Media Ponderada: %.2f%n", codigo,
+						nota1, nota2, nota3, mediaPonderada);
+			} else {
+				System.out.printf("Reprovado!%n Codigo %d%n Notas: %.2f %.2f %.2f%n Media Ponderada: %.2f%n", codigo,
+						nota1, nota2, nota3, mediaPonderada);
+			}
+
 		} else {
 			mediaPonderada = ((nota3 * 4) + (nota1 * 3) + (nota2 * 3)) / 10;
+			if (mediaPonderada >= 5) {
+				System.out.printf("Aprovado!%n Codigo %d%n Notas: %.2f %.2f %.2f%n Media Ponderada: %.2f%n", codigo,
+						nota1, nota2, nota3, mediaPonderada);
+			} else {
+				System.out.printf("Reprovado!%n Codigo %d%n Notas: %.2f %.2f %.2f%n Media Ponderada: %.2f%n", codigo,
+						nota1, nota2, nota3, mediaPonderada);
+			}
 		}
-
-		while (mediaPonderada >= 5.00) {
-			System.out.printf("Aprovado!%n Codigo %d%n Notas: %.2f %.2f %.2f%n Media Ponderada: %.2f%n", codigo, nota1,
-					nota2, nota3, mediaPonderada);
-			
-			mediaPonderada = sc.nextDouble();
-		}
-
-		System.out.printf("Reprovado!%n Codigo %d%n Notas: %.2f %.2f %.2f%n Media Ponderada: %.2f%n", codigo, nota1,
-				nota2, nota3, mediaPonderada);
 
 	}
 }

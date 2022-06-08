@@ -32,7 +32,7 @@ public class IntroducaoFuncoes {
 		return aux;
 	}
 	
-	public static void showResult(int value) { //metodo pra mostrar o valor 
+	public static void showResult(int value) { //metodo
 		System.out.println("Higher = " + value);
 	}
 
